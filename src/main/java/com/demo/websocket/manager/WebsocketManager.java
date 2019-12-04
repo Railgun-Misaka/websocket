@@ -6,7 +6,11 @@ import java.util.Collection;
 import java.util.Collections;
 
 import com.demo.websocket.server.WebsocketServer;
- 
+ /**
+  * websocketπ‹¿Ì
+  * @author Fly
+  *
+  */
 public class WebsocketManager {
  
     private static Collection<WebsocketServer> servers = Collections.synchronizedCollection(new ArrayList<WebsocketServer>());

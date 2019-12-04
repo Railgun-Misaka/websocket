@@ -11,7 +11,12 @@ public class TimingCenter implements Runnable{
 	private TimingCenter() {
 		
 	}
-	
+	/**
+	 * 单例模式     保证开放一条线程
+	 * 开放多条时报错
+	 * @author Fly
+	 *
+	 */
 	private static class TimingCentermpl{
 		private static TimingCenter timingCenter = new TimingCenter();
 		private static Thread thread = new Thread(timingCenter);
@@ -37,4 +42,11 @@ public class TimingCenter implements Runnable{
 			WebsocketManager.broadCast(now);
 		}
 	}
+    
+/* 当JVM从内存中反序列化地"组装"一个新对象时，就会自动调用这个 readResolve方法来返回我们指定好的对象了, 单例规则也就得到了保证。
+   readResolve()的出现允许程序员自行控制通过反序列化得到的对象。*/
+//  protected Object readResolve() {
+//  System.out.println("调用了readResolve方法");
+//  return InnerClass.singletonStaticInnerSerialize;
+//}
 }
